@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Resources\Views\Auth\login;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Controllers\DaftarController;
+
+
+use App\Livewire\Actions\Logout;
 
 Route::get('/', function () {
     return view('index');
@@ -14,9 +17,7 @@ Route::get('/masuk', function () {
 })->name('masuk');
 
 
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('daftar');
-Route::post('/register', [RegisterController::class, 'register']);
-
-
+Route::get('/daftar', [DaftarController::class, 'showRegistrationForm'])->name('daftar');
+Route::post('/daftar', [DaftarController::class, 'register']);
 
 require __DIR__.'/auth.php';
