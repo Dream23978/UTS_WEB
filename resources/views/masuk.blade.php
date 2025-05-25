@@ -25,8 +25,8 @@
     <!-- Navbar dibungkus agar bisa diatur posisinya -->
     <div class="flex-1 flex justify-center">
       <ul class="flex gap-6 text-sm md:text-base font-medium">
-        <li><a href="#" class="hover:text-indigo-600 transition">Home</a></li>
-        <li><a href="#" class="hover:text-indigo-600 transition">Laporan</a></li>
+        <li><a href="{{ route('index') }}" class="hover:text-indigo-600 transition">Home</a></li>
+        <li><a href="" class="hover:text-indigo-600 transition">Laporan</a></li>
         <li><a href="#" class="hover:text-indigo-600 transition">Riwayat</a></li>
       </ul>
     </div>
@@ -69,8 +69,8 @@
                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm" />
           </div>
           <div>
-             <a href="#"
-                class="w-full text-center bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white py-2 rounded-lg hover:bg-blue-600 transition text-sm block" onclick>
+             <a href="{{ route('index') }}"
+                class="w-full text-center bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white py-2 rounded-lg hover:bg-blue-600 transition text-sm block" onclick ="showCustomImageSwal1()">
               Login
               </a>
           </div>
@@ -83,13 +83,6 @@
   <footer class="text-center text-sm font-medium text-gray-600 mt-24 mb-6">
     &copy; SPELL. Semua hak dilindungi.
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    Swal.fire({
-    title: "Login Berhasil",
-    icon: "success",
-    draggable: true
-  });
-  </script>
+
 </body>
 </html>

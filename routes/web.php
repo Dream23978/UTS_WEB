@@ -7,8 +7,10 @@ use App\Http\Controllers\LoginController;
 Route::get('/', function () {
     return view('index');
 })->name('index');
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+
+Route::get('/masuk', function () {
+    return view('masuk');
+})->name('masuk');
+
 
 require __DIR__.'/auth.php';

@@ -61,9 +61,10 @@
 
       <!-- Login Button -->
       <div class="text-center mt-8">
-        <button class="relative inline-block px-8 py-3 bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white font-semibold rounded-xl overflow-hidden group transition duration-300 shadow-md hover:shadow-xl"><a href = "#"></a>
+        <button class="relative inline-block px-8 py-3 bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white font-semibold rounded-xl
+         overflow-hidden group transition duration-300 shadow-md hover:shadow-xl">
           <span class="absolute inset-0 transform scale-0 group-hover:scale-100 transition-transform bg-white opacity-10"></span>
-          <span class="relative z-10 ">Login</span>
+          <span class="relative z-10 " ><a href="{{ route('masuk') }}">Login</span>
         </button>
       </div>
     </section>
