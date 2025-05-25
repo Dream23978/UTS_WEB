@@ -76,9 +76,9 @@
       </h2>
 
        <section class=" flex flex-col max-w-2xl lg:w-2xs mx-auto md:px-0 text-justify bg-white rounded-3xl shadow-md py-10 px-8 animate-fadeinb text-white mt-9">
-        <button class="bg-gradient-to-br from-[#2C3E50] to-[#34495E] rounded-3xl px-5 h-11 shadow-xl  " onclick="showCustomImageSwal1()">Pelanggaran 1</button >
-        <button class="bg-gradient-to-br from-[#2C3E50] to-[#34495E] rounded-3xl px-5 h-11 mt-10 shadow-xl" onclick="showCustomImageSwal2()" >Pelanggaran 2</button>
-        <button class="bg-gradient-to-br from-[#2C3E50] to-[#34495E] rounded-3xl px-5 h-11 mt-10 shadow-xl" onclick="showCustomImageSwal3()">Pelanggaran 3</button>
+        <button class="bg-gradient-to-br from-[#2C3E50] to-[#34495E] rounded-3xl px-5 h-11 shadow-xl  " onclick="showCustomImageSwall1()">Pelanggaran 1</button >
+        <button class="bg-gradient-to-br from-[#2C3E50] to-[#34495E] rounded-3xl px-5 h-11 mt-10 shadow-xl" onclick="showCustomImageSwall2()" >Pelanggaran 2</button>
+        <button class="bg-gradient-to-br from-[#2C3E50] to-[#34495E] rounded-3xl px-5 h-11 mt-10 shadow-xl" onclick="showCustomImageSwall3()">Pelanggaran 3</button>
 
        </section>
 
@@ -95,7 +95,7 @@
 
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-window.showCustomImageSwal1 = function () {
+window.showCustomImageSwall1 = function () {
   Swal.fire({
     title: "Melanggar lampu merah",
     text: "Dikutip dari IIHS.org,  berdasarkan data tahun 2022 sebanyak 1149 orang tewas karena melanggar lampu merah (Foto oleh Vadim Timayev).",
@@ -105,7 +105,7 @@ window.showCustomImageSwal1 = function () {
     imageAlt: "Lampu merah"
   });
 }
-window.showCustomImageSwal2 = function () {
+window.showCustomImageSwall2 = function () {
   Swal.fire({
     title: "Melanggar rambu lalu lintas",
     text: "Melanggar rambu lalu lintas bisa berujung pada denda atau kurungan, serta membahayakan keselamatan diri sendiri dan orang lain, terutama jika rambu berkaitan dengan kecepatan, arah, atau bahaya (gambar dari Istock). ",
@@ -115,7 +115,7 @@ window.showCustomImageSwal2 = function () {
     imageAlt: "Lampu merah"
   });
 };
-window.showCustomImageSwal3 = function () {
+window.showCustomImageSwall3 = function () {
   Swal.fire({
     title: "Tidak Pakai Helm",
     text: "Tidak memakai helm meningkatkan risiko cedera serius saat kecelakaan, dan bisa dikenai sanksi sesuai aturan lalu lintas (gambar dari freepik). ",
