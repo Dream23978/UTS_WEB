@@ -21,3 +21,7 @@ Route::get('/daftar', [DaftarController::class, 'showRegistrationForm'])->name('
 Route::post('/daftar', [DaftarController::class, 'register']);
 
 require __DIR__.'/auth.php';
+use App\Http\Controllers\LaporanController;
+
+Route::get('/laporan', [LaporanController::class, 'create'])->name('laporan.create');
+Route::post('/laporan', [LaporanController::class, 'store'])->name('laporan.store');
