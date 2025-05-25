@@ -26,7 +26,7 @@
       <ul class="flex gap-6 text-sm md:text-base font-medium">
         <li><a href="{{ route('index') }}" class="hover:text-indigo-600 transition">Home</a></li>
         <li><a href="/laporan" class="hover:text-indigo-600 transition">Laporan</a></li>
-        <li><a href="#" class="hover:text-indigo-600 transition">Riwayat</a></li>
+        <li><a href="/cekstatus" class="hover:text-indigo-600 transition">Riwayat</a></li>
       </ul>
     </div>
 
@@ -110,7 +110,7 @@
                     </div>
 
                     <button type="submit"
-                        class="w-full bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white font-semibold py-2 rounded transition duration-300">Kirim
+                        class="w-full bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white font-semibold py-2 rounded transition duration-300" onclick="showCustomImageSwal1()">Kirim
                         Laporan</button>
                 </form>
             </div>
@@ -125,10 +125,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-    Swal.fire({
+    window.showCustomImageSwal1 = function () {
+        Swal.fire({
   title: "Laporan Terkirim!",
   icon: "success",
-  draggable: true });
+  draggable: true });}
     </script>
 </body>
 

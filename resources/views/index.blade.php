@@ -28,7 +28,7 @@
       <ul class="flex gap-6 text-sm md:text-base font-medium">
         <li><a href="{{ route('index') }}" class="hover:text-indigo-600 transition">Home</a></li>
         <li><a href="/laporan" class="hover:text-indigo-600 transition">Laporan</a></li>
-        <li><a href="#" class="hover:text-indigo-600 transition">Riwayat</a></li>
+        <li><a href="/cekstatus" class="hover:text-indigo-600 transition">Riwayat</a></li>
       </ul>
     </div>
 

@@ -60,7 +60,7 @@
         </div>
 
         <button type="submit"
-                class="w-full py-2 px-4 bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white font-semibold rounded-xl transition duration-200">
+                class="w-full py-2 px-4 bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white font-semibold rounded-xl transition duration-200" onclick="showCustomImageSwal1()">
           Daftar
         </button>
       </form>
@@ -73,13 +73,13 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    Swal.fire({
-    title: "Login Berhasil",
-    icon: "success",
-    draggable: true
-  });
-  </script>
+   <script>
+    window.showCustomImageSwal1 = function () {
+        Swal.fire({
+  title: "Laporan Terkirim!",
+  icon: "success",
+  draggable: true });}
+    </script>
 
 </body>
 </html>

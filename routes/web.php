@@ -12,6 +12,9 @@ use App\Livewire\Actions\Logout;
 Route::get('/', function () {
     return view('index');
 })->name('index');
+Route::get('/cekstatus', function () {
+    return view('cekstatus');
+})->name('cekstatus');
 
 Route::get('/masuk', function () {
     return view('masuk');

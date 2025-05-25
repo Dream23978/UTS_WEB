@@ -45,5 +45,5 @@ class DaftarController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-}return redirect()->route('masuk');
+}
 
