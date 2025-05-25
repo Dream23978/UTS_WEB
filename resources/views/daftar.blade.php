@@ -13,11 +13,11 @@
   <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
     <h1 class="text-xl font-extrabold tracking-wider text-slate-900">SPELL</h1>
 
-    <!-- Menu dibungkus agar bisa diatur posisinya -->
+
     <div class="flex-1 flex justify-center">
       <ul class="flex gap-6 text-sm md:text-base font-medium">
-        <li><a href="#" class="hover:text-indigo-600 transition">Home</a></li>
-        <li><a href="#" class="hover:text-indigo-600 transition">Laporan</a></li>
+        <li><a href="{{ route('index') }}" class="hover:text-indigo-600 transition">Home</a></li>
+        <li><a href="/laporan" class="hover:text-indigo-600 transition">Laporan</a></li>
         <li><a href="#" class="hover:text-indigo-600 transition">Riwayat</a></li>
       </ul>
     </div>
@@ -30,10 +30,10 @@
 </nav>
 
   <!-- Form Register -->
-  <div class="flex items-center justify-center pt-28 px-4"> 
+  <div class="flex items-center justify-center pt-28 px-4">
     <div class="w-full max-w-md p-6 bg-white rounded-2xl shadow-xl">
       <h1 class="text-2xl font-bold text-center text-bg-gradient-to-br from-[#2C3E50] to-[#34495E] mb-6">Daftar Akun</h1>
-      <form action="{{ route('register') }}" method="POST" class="space-y-4">
+      <form action="{{ route('daftar') }}" method="POST" class="space-y-4">
         @csrf
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
@@ -80,6 +80,6 @@
     draggable: true
   });
   </script>
-  
+
 </body>
 </html>

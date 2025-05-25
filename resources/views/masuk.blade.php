@@ -26,7 +26,7 @@
     <div class="flex-1 flex justify-center">
       <ul class="flex gap-6 text-sm md:text-base font-medium">
         <li><a href="{{ route('index') }}" class="hover:text-indigo-600 transition">Home</a></li>
-        <li><a href="" class="hover:text-indigo-600 transition">Laporan</a></li>
+        <li><a href="/laporan" class="hover:text-indigo-600 transition">Laporan</a></li>
         <li><a href="#" class="hover:text-indigo-600 transition">Riwayat</a></li>
       </ul>
     </div>
@@ -46,17 +46,18 @@
         <h2 class="text-6xl font-bold mb-4">SPELL</h2>
         <h2 class="text-xl font-bold mb-4">Sistem Pelaporan dan Edukasi Lalu Lintas</h2>
         <p class="text-center mb-6 text-sm md:text-base">Belum Punya Akun? Daftar Dulu</p>
-        <a href="#"
-           class="border border-white px-6 py-2 rounded-full hover:bg-white hover:text-[#2C3E50] transition text-sm md:text-base">
-          Daftar
-        </a>
+     <a href="{{ route('daftar') }}"
+   class="border border-white px-6 py-2 rounded-full hover:bg-white hover:text-[#2C3E50] transition text-sm md:text-base">
+  Daftar
+</a>
+
       </div>
 
       <!-- Login Form -->
       <div class="w-full md:w-1/2 p-6 sm:p-10 md:p-12 flex flex-col justify-center">
         <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('masuk') }}">
           @csrf
           <div class="mb-4">
             <label class="block text-gray-700 text-sm">Email</label>
@@ -83,6 +84,16 @@
   <footer class="text-center text-sm font-medium text-gray-600 mt-24 mb-6">
     &copy; SPELL. Semua hak dilindungi.
   </footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    window.showCustomImageSwal1 = function () {
+    time.sleep(1)
+    Swal.fire({
+    title: "Login Berhasil",
+    icon: "success",
+    draggable: true
+  });
+};
+  </script>
 </body>
 </html>

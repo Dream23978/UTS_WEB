@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
-class RegisterController extends Controller
+class DaftarController extends Controller
 {
     public function showRegistrationForm()
     {
-        return view('Register.Register'); 
+        return view('daftar');
     }
+
 
     public function register(Request $request)
     {
@@ -24,7 +25,7 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard'); 
+        return redirect()->route('dashboard');
     }
 
     protected function validator(array $data)
@@ -44,5 +45,5 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-}return redirect() ->back();
+}return redirect()->route('masuk');
 

@@ -24,8 +24,8 @@
     <!-- Menu dibungkus agar bisa diatur posisinya -->
     <div class="flex-1 flex justify-center">
       <ul class="flex gap-6 text-sm md:text-base font-medium">
-        <li><a href="#" class="hover:text-indigo-600 transition">Home</a></li>
-        <li><a href="#" class="hover:text-indigo-600 transition">Laporan</a></li>
+        <li><a href="{{ route('index') }}" class="hover:text-indigo-600 transition">Home</a></li>
+        <li><a href="/laporan" class="hover:text-indigo-600 transition">Laporan</a></li>
         <li><a href="#" class="hover:text-indigo-600 transition">Riwayat</a></li>
       </ul>
     </div>
@@ -48,7 +48,7 @@
     <p class="text-gray-700 mb-4" style="text-align: justify;">
         Form ini memungkinkan pengguna untuk mengirim laporan kejadian lalu lintas seperti kecelakaan, pelanggaran, atau kondisi jalan yang membahayakan. Elemen-elemen penting yang disediakan dalam form ini:
     </p>
-    
+
     <h3 class="text-lg font-semibold text-gray-800 mb-2">Upload Foto Kejadian</h3>
     <p class="text-gray-700 mb-4" style="text-align: justify;">
         Pengguna dapat mengunggah bukti visual berupa gambar (misalnya kecelakaan atau rambu rusak).
@@ -117,7 +117,7 @@
 
         </div>
     </main>
-        
+
     <!-- Footer -->
     <footer class="text-center py-4 text-gray-700 text-sm">
         &copy; 2025 Sistem Pelaporan dan Edukasi Lalu Lintas

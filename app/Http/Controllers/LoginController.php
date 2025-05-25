@@ -10,6 +10,6 @@ class LoginController extends Controller
     {
         return view('masuk');
     }
-} return redirect()->route('index'); // atau ke route yang kamu punya
+} return redirect()->route('index'); 
 
 

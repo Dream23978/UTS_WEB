@@ -15,7 +15,7 @@
     <!-- Tailwind CSS via Vite -->
     @vite('resources/css/app.css')
 
-  
+
   </head>
   <body class="bg-gradient-to-b from-gray-100 to-gray-200 text-gray-800">
 
@@ -24,11 +24,10 @@
   <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
     <h1 class="text-xl font-extrabold tracking-wider text-slate-900">SPELL</h1>
 
-    <!-- Menu dibungkus agar bisa diatur posisinya -->
     <div class="flex-1 flex justify-center">
       <ul class="flex gap-6 text-sm md:text-base font-medium">
-        <li><a href="#" class="hover:text-indigo-600 transition">Home</a></li>
-        <li><a href="#" class="hover:text-indigo-600 transition">Laporan</a></li>
+        <li><a href="{{ route('index') }}" class="hover:text-indigo-600 transition">Home</a></li>
+        <li><a href="/laporan" class="hover:text-indigo-600 transition">Laporan</a></li>
         <li><a href="#" class="hover:text-indigo-600 transition">Riwayat</a></li>
       </ul>
     </div>
@@ -39,7 +38,7 @@
     </div>
   </div>
 </nav>
-    
+
 
     <!-- Hero Section -->
     <section class="pt-32 pb-16 flex flex-col items-center text-center px-4">
@@ -80,16 +79,16 @@
         <button class="bg-gradient-to-br from-[#2C3E50] to-[#34495E] rounded-3xl px-5 h-11 shadow-xl  " onclick="showCustomImageSwal1()">Pelanggaran 1</button >
         <button class="bg-gradient-to-br from-[#2C3E50] to-[#34495E] rounded-3xl px-5 h-11 mt-10 shadow-xl" onclick="showCustomImageSwal2()" >Pelanggaran 2</button>
         <button class="bg-gradient-to-br from-[#2C3E50] to-[#34495E] rounded-3xl px-5 h-11 mt-10 shadow-xl" onclick="showCustomImageSwal3()">Pelanggaran 3</button>
-        
+
        </section>
 
 
 
     <!-- Footer -->
-   
+
 
     <footer class="text-center text-sm font-medium text-gray-600 mt-24 mb-6">
-    
+
       &copy; SPELL. Semua hak dilindungi.
     </footer>
 

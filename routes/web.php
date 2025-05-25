@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Resources\Views\Auth\login;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\Controllers\DaftarController;
+use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\LaporanController;
 
 
 use App\Livewire\Actions\Logout;
@@ -20,8 +21,10 @@ Route::get('/masuk', function () {
 Route::get('/daftar', [DaftarController::class, 'showRegistrationForm'])->name('daftar');
 Route::post('/daftar', [DaftarController::class, 'register']);
 
-require __DIR__.'/auth.php';
-use App\Http\Controllers\LaporanController;
+
+
 
 Route::get('/laporan', [LaporanController::class, 'create'])->name('laporan.create');
 Route::post('/laporan', [LaporanController::class, 'store'])->name('laporan.store');
+
+require __DIR__.'/auth.php';
