@@ -29,7 +29,7 @@
 </nav>
 
   <!-- Container -->
-  <div class="max-w-2xl mx-auto mt-32 px-4 space-y-6">
+  <div class="max-w-2xl mx-auto mt-32 px-4 space-y-6 ">
 
     <!-- Judul -->
     <div class="text-center shadow-xl bg-blue-900 rounded-lg py-2">
@@ -99,7 +99,7 @@
   <!-- Footer -->
   <footer class="text-center text-sm font-medium text-gray-600 mt-24 mb-6">
 
-      &copy; SPELL. Semua hak dilindungi.
+      &copy; SPELL.2025
     </footer>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

@@ -18,7 +18,7 @@
       <ul class="flex gap-6 text-sm md:text-base font-medium">
         <li><a href="{{ route('index') }}" class="hover:text-indigo-600 transition">Home</a></li>
         <li><a href="/laporan" class="hover:text-indigo-600 transition">Laporan</a></li>
-        <li><a href="#" class="hover:text-indigo-600 transition">Riwayat</a></li>
+        <li><a href="/cekstatus" class="hover:text-indigo-600 transition">Riwayat</a></li>
       </ul>
     </div>
 
@@ -69,14 +69,14 @@
 
   <!-- Footer -->
   <footer class="text-center text-sm font-medium text-gray-600 mt-24 mb-6">
-    &copy; SPELL. Semua hak dilindungi.
+    &copy; 2025 Sistem Pelaporan dan Edukasi Lalu Lintas
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script>
     window.showCustomImageSwal1 = function () {
         Swal.fire({
-  title: "daftar Terkirim!",
+  title: "Registrasi Berhasil!",
   icon: "success",
   draggable: true });}
     </script>

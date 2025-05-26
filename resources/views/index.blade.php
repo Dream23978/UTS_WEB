@@ -88,7 +88,7 @@
 
     <footer class="text-center text-sm font-medium text-gray-600 mt-24 mb-6">
 
-      &copy; SPELL. Semua hak dilindungi.
+     &copy; 2025 Sistem Pelaporan dan Edukasi Lalu Lintas
     </footer>
 
 
