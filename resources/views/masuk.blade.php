@@ -71,7 +71,7 @@
           </div>
           <div>
              <a href="{{ route('index') }}"
-                class="w-full text-center bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white py-2 rounded-lg hover:bg-blue-600 transition text-sm block" onclick ="showCustomImageSwal1()">
+                class="w-full text-center bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white py-2 rounded-lg hover:bg-blue-600 transition text-sm block" onclick ="tombol()">
               Login
               </a>
           </div>
@@ -86,7 +86,7 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    window.showCustomImageSwal1 = function () {
+    window.tombol = function () {
     time.sleep(1)
     Swal.fire({
     title: "Login Berhasil",

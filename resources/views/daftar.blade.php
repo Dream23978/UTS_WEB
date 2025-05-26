@@ -76,7 +76,7 @@
    <script>
     window.showCustomImageSwal1 = function () {
         Swal.fire({
-  title: "Laporan Terkirim!",
+  title: "daftar Terkirim!",
   icon: "success",
   draggable: true });}
     </script>
