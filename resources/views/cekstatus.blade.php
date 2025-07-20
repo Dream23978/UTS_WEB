@@ -1,106 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Riwayat Pelanggaran Lalu Lintas</title>
+  <title>Riwayat Laporan Pelanggaran - SPELL</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-b from-gray-100 to-gray-200 text-gray-800">
-<!-- Navbar -->
-    <nav class="fixed top-0 w-full backdrop-blur bg-white/80 shadow-sm z-50">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-    <h1 class="text-xl font-extrabold tracking-wider text-slate-900">SPELL</h1>
+<body class="bg-gray-100 font-sans text-gray-800">
 
-    <!-- Menu dibungkus agar bisa diatur posisinya -->
-    <div class="flex-1 flex justify-center">
+  <!-- Navbar -->
+  <nav class="bg-white shadow fixed w-full z-50 top-0 left-0">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-indigo-700">SPELL</h1>
       <ul class="flex gap-6 text-sm md:text-base font-medium">
         <li><a href="#" class="hover:text-indigo-600 transition">Home</a></li>
-        <li><a href="#" class="hover:text-indigo-600 transition">Laporan</a></li>
+        <li><a href="#" class="text-indigo-700 font-semibold">Laporan</a></li>
         <li><a href="#" class="hover:text-indigo-600 transition">Riwayat</a></li>
+      </ul>
+      <span class="text-sm text-gray-500 hidden md:block">
+        {{ now()->format('d M Y | H:i') }}
+      </span>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="pt-28 pb-16 px-4 max-w-3xl mx-auto space-y-6">
+
+    <!-- Judul -->
+    <div class="text-center bg-indigo-700 text-white py-4 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Riwayat Laporan Pelanggaran</h2>
+      <p class="text-sm mt-1">Berikut adalah data pelanggaran yang pernah Anda laporkan.</p>
+    </div>
+
+    <!-- Penjelasan Status -->
+    <div class="bg-white border-l-4 border-indigo-600 p-4 rounded shadow">
+      <h3 class="font-semibold text-indigo-700 mb-2">Penjelasan Status Laporan:</h3>
+      <ul class="text-sm text-gray-700 space-y-1 list-disc list-inside">
+        <li><span class="font-bold text-red-600">Dalam Proses:</span> Laporan sedang ditinjau oleh petugas dan menunggu verifikasi.</li>
+        <li><span class="font-bold text-blue-600">Ditindak:</span> Laporan telah diproses dan pelanggar sudah diberikan tindakan.</li>
+        <li><span class="font-bold text-green-600">Sudah Ditangani:</span> Penanganan laporan telah selesai oleh pihak berwenang.</li>
       </ul>
     </div>
 
-    <!-- Tanggal di kanan -->
-    <div class="hidden md:block ml-4 text-sm text-slate-700">
-      {{ date('Y M d | H:i') }}
-    </div>
-  </div>
-</nav>
+    <!-- Data Pelanggaran -->
+    @php
+      $data = [
+        [
+          'judul' => 'Melanggar Lampu Merah', 'status' => 'Ditindak',
+          'tanggal' => '20 Mei 2025', 'lokasi' => 'Simpang Empat Jalan Merdeka',
+          'keterangan' => 'Pengemudi menerobos saat lampu masih merah.',
+          'foto' => 'https://source.unsplash.com/400x200/?traffic,redlight'
+        ],
+        [
+          'judul' => 'Tidak Menggunakan Helm', 'status' => 'Dalam Proses',
+          'tanggal' => '18 Mei 2025', 'lokasi' => 'Jalan Diponegoro',
+          'keterangan' => 'Pengendara motor tertangkap CCTV tanpa helm.',
+          'foto' => 'https://source.unsplash.com/400x200/?motorcycle,helmet'
+        ],
+        [
+          'judul' => 'Parkir Sembarangan', 'status' => 'Sudah Ditangani',
+          'tanggal' => '15 Mei 2025', 'lokasi' => 'Jalan Ahmad Yani',
+          'keterangan' => 'Mobil diparkir di trotoar dan mengganggu pejalan kaki.',
+          'foto' => 'https://source.unsplash.com/400x200/?car,parking'
+        ]
+      ];
 
-  <!-- Container -->
-  <div class="max-w-2xl mx-auto mt-32 px-4 space-y-6">
+      function warnaStatus($status) {
+        return match($status) {
+          'Dalam Proses' => 'text-red-600',
+          'Ditindak' => 'text-blue-600',
+          'Sudah Ditangani' => 'text-green-600',
+          default => 'text-gray-600'
+        };
+      }
+    @endphp
 
-    <!-- Judul -->
-    <div class="text-center shadow-xl bg-blue-900 rounded-lg py-2">
-      <h2 class="text-xl font-bold text-white">Riwayat Laporan</h2>
-    </div>
-
-    <!-- Laporan 1 -->
-    <div class="bg-white border rounded-lg shadow-xl">
-      <div onclick="toggleNotif(this)" class="flex justify-between items-center p-4 cursor-pointer">
-        <span class="font-semibold text-gray-800">Pelanggaran 1: Melanggar Lampu Merah</span>
-        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+    @foreach ($data as $index => $item)
+      <div class="bg-white border border-gray-200 rounded-lg shadow hover:shadow-md transition">
+        <button onclick="toggle(this)" class="w-full flex justify-between items-center p-4 text-left">
+          <span class="font-medium text-gray-800">🚨 Pelanggaran {{ $index + 1 }}: {{ $item['judul'] }}</span>
+          <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        <div class="detail hidden px-4 pb-4 text-sm text-gray-700 border-t bg-gray-50 space-y-2">
+          <p><strong>Status:</strong> <span class="{{ warnaStatus($item['status']) }}">{{ $item['status'] }}</span></p>
+          <p><strong>Tanggal Kejadian:</strong> {{ $item['tanggal'] }}</p>
+          <p><strong>Lokasi:</strong> {{ $item['lokasi'] }}</p>
+          <p><strong>Keterangan:</strong> {{ $item['keterangan'] }}</p>
+          <p><strong>Foto Pelanggaran:</strong></p>
+          <img src="{{ $item['foto'] }}" alt="Foto pelanggaran" class="w-full h-auto rounded-md border border-gray-300 shadow-sm">
+          <div class="pt-2">
+            <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-4 py-2 rounded shadow">
+              🖨️ Cetak Laporan
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="notif hidden p-4 border-t text-sm bg-gray-50 text-gray-700">
-        <strong>Status:</strong> Ditindak<br>
-        <strong>Tanggal Kejadian:</strong> 20 Mei 2025<br>
-        <strong>Lokasi:</strong> Simpang Empat Jalan Merdeka<br>
-        <strong>Keterangan:</strong> Pengemudi menerobos saat lampu masih merah.
-      </div>
-    </div>
+    @endforeach
 
-    <!-- Laporan 2 -->
-    <div class="bg-white border rounded-lg shadow-xl">
-      <div onclick="toggleNotif(this)" class="flex justify-between items-center p-4 cursor-pointer">
-        <span class="font-semibold text-gray-800">Pelanggaran 2: Tidak Menggunakan Helm</span>
-        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </div>
-      <div class="notif hidden p-4 border-t text-sm bg-gray-50 text-gray-700">
-        <strong>Status:</strong> Dalam Proses<br>
-        <strong>Tanggal Kejadian:</strong> 18 Mei 2025<br>
-        <strong>Lokasi:</strong> Jalan Diponegoro<br>
-        <strong>Keterangan:</strong> Pengendara motor tertangkap CCTV tanpa helm.
-      </div>
-    </div>
+  </main>
 
-    <!-- Laporan 3 -->
-    <div class="bg-white border rounded-lg shadow-xl">
-      <div onclick="toggleNotif(this)" class="flex justify-between items-center p-4 cursor-pointer">
-        <span class="font-semibold text-gray-800">Pelanggaran 3: Parkir Sembarangan</span>
-        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </div>
-      <div class="notif hidden p-4 border-t text-sm bg-gray-50 text-gray-700">
-        <strong>Status:</strong> Sudah Ditangani<br>
-        <strong>Tanggal Kejadian:</strong> 15 Mei 2025<br>
-        <strong>Lokasi:</strong> Jalan Ahmad Yani<br>
-        <strong>Keterangan:</strong> Mobil diparkir di trotoar dan mengganggu pejalan kaki.
-      </div>
-    </div>
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 mt-6 mb-8">
+    &copy; 2025 SPELL. Semua hak dilindungi.
+  </footer>
 
-  </div>
-
-  <!-- Toggle Script -->
+  <!-- Script Toggle -->
   <script>
-    function toggleNotif(el) {
-      const notif = el.nextElementSibling;
-      notif.classList.toggle('hidden');
-      const arrow = el.querySelector('svg');
-      arrow.classList.toggle('rotate-90');
+    function toggle(el) {
+      const detail = el.nextElementSibling;
+      const icon = el.querySelector('svg');
+      detail.classList.toggle('hidden');
+      icon.classList.toggle('rotate-90');
     }
   </script>
 
-  <!-- Footer -->
-  <footer class="text-center text-sm font-medium text-gray-600 mt-24 mb-6">
-    
-      &copy; SPELL. Semua hak dilindungi.
-    </footer>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
