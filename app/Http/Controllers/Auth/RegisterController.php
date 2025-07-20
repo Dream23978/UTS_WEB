@@ -13,26 +13,44 @@ class RegisterController extends Controller
 {
     public function showRegistrationForm()
     {
-        return view('Register.Register'); 
+        return view('Register.Register');
     }
 
     public function register(Request $request)
     {
+        // Validasi dengan aturan tambahan
         $this->validator($request->all())->validate();
 
         $user = $this->create($request->all());
 
         Auth::login($user);
 
-        return redirect()->route('dashboard'); 
+        return redirect()->route('dashboard')->with('success', 'Registrasi berhasil!');
+
     }
 
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+
+            // Email harus unik, valid, dan hanya dari domain yang diperbolehkan
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                'unique:users',
+                'regex:/^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$/'
+            ],
+
+            // Password minimal 8 dan harus sama dengan konfirmasi
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ],
+        [
+            // Pesan error kustom
+            'email.regex' => 'Email harus menggunakan domain @gmail.com, @yahoo.com, atau @outlook.com.',
+            'password.confirmed' => 'Konfirmasi kata sandi tidak cocok.',
         ]);
     }
 
@@ -44,5 +62,5 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-}return redirect() ->back();
+}
 
