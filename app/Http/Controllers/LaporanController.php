@@ -16,21 +16,32 @@ class LaporanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'foto' => 'required|image|max:2048',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp',
             'lokasi' => 'required|string|max:255',
             'tanggal_kejadian' => 'required|date',
+        ], [
+            'foto.required' => 'Foto kejadian wajib diunggah.',
+            'foto.image' => 'File harus berupa gambar.',
+            'foto.mimes' => 'Format gambar diperbolehkan: jpeg, png, jpg, gif, svg, webp.',
         ]);
 
-        // Simpan foto ke storage
-        $path = $request->file('foto')->store('public/foto_laporan');
+        try {
+            $filename = null;
 
-        // Simpan data lapor (contoh, bisa disesuaikan dengan model database)
-        // Laporan::create([
-        //     'foto_path' => $path,
-        //     'lokasi' => $request->lokasi,
-        //     'tanggal_kejadian' => $request->tanggal_kejadian,
-        // ]);
+            if ($request->hasFile('foto')) {
+                $filename = time() . '_' . $request->file('foto')->getClientOriginalName();
+                $path = $request->file('foto')->storeAs('public/foto_laporan', $filename);
+            }
 
-        return redirect()->route('laporan.create')->with('success', 'Laporan berhasil dikirim!');
+            Laporan::create([
+                'foto' => $path ?? null,
+                'lokasi' => $request->lokasi,
+                'tanggal_kejadian' => $request->tanggal_kejadian,
+            ]);
+
+            return redirect()->route('laporan.create')->with('success', 'Laporan berhasil dikirim!');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Terjadi kesalahan saat mengunggah laporan: ' . $e->getMessage());
+        }
     }
 }
