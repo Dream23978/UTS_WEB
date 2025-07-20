@@ -16,16 +16,16 @@ Route::get('/cekstatus', function () {
     return view('cekstatus');
 })->name('cekstatus');
 
-Route::get('/masuk', function () {
-    return view('masuk');
-})->name('masuk');
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
+Route::middleware(['auth'])->group(function () {
+    Route::redirect('settings', 'settings/profile');
 
-Route::get('/daftar', [DaftarController::class, 'showRegistrationForm'])->name('daftar');
-Route::post('/daftar', [DaftarController::class, 'register']);
+    Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
+    Volt::route('settings/password', 'settings.password')->name('settings.password');
+    Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
+});
 
-
-
-
-Route::get('/laporan', [LaporanController::class, 'create'])->name('laporan.create');
-Route::post('/laporan', [LaporanController::class, 'store'])->name('laporan.store');
+require __DIR__.'/auth.php';
